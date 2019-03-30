@@ -9,14 +9,14 @@ public class Main {
     int algorithm = 0;
     long seed = 0;
 
-    if (args.length == 6) {
+    if (args.length == 0) {
       try {
-        nBuildings = Integer.parseInt(args[0]);
-        nRooms = Integer.parseInt(args[1]);
-        nCourses = Integer.parseInt(args[2]);
-        TIME_LIMIT_SECONDS = Integer.parseInt(args[3]);
-        algorithm = Integer.parseInt(args[4]);
-        seed = Long.parseLong(args[5]);
+        nBuildings = 10;//Integer.parseInt(args[0]);
+        nRooms = 10;//Integer.parseInt(args[1]);
+        nCourses = 10; //Integer.parseInt(args[2]);
+        TIME_LIMIT_SECONDS = 10; //Integer.parseInt(args[3]);
+        algorithm = 1;// Integer.parseInt(args[4]);
+        seed = 0; //Long.parseLong(args[5]);
       } catch (NumberFormatException e) {
         System.out.println("Number format exception reading arguments");
         System.exit(1);
@@ -45,7 +45,12 @@ public class Main {
     Schedule solution = null;
     if (algorithm == 0) {
       solution = search.naiveBaseline(test1, deadline);
-    } else {
+    }
+    else if (algorithm == 1) {
+        solution = search.simulatedAnnealing(test1, deadline);
+        System.out.println("Algorithm Name: Simulated Annealing");
+        }
+    else {
       System.out.println("ERROR: Given algorithm number does not exist!");
       System.exit(1);
     }

@@ -32,7 +32,7 @@ public class SchedulingProblem {
       Building tmp = new Building();
       tmp.xCoord = random.nextDouble() * MAX_X_COORD;
       tmp.yCoord = random.nextDouble() * MAX_Y_COORD;
-      buildings.add(tmp);
+      buildings.add(tmp); //add random building to arrayList of buildings
     }
 
     // create random rooms
